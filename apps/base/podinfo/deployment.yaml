@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: providers.notification.toolkit.fluxcd.io  
+  name: podinfo  
 spec:
   selector:
     matchLabels:
@@ -12,14 +12,14 @@ spec:
         app: podinfo
     spec:
       containers:
-      - name: podinfo
-        image: ghcr.io/stefanprodan/podinfo:6.5.4
-        imagePullPolicy: IfNotPresent
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-          - name: http
-            containerPort: 9898
-            protocol: TCP
+        - name: podinfo
+          image: ghcr.io/stefanprodan/podinfo:6.5.4
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - name: http
+              containerPort: 9898
+              protocol: TCP
